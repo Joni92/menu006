@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;    
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    background: #020112;
+    overflow: hidden; 
+}
+
+body::before {
+    content: '';
+    position: absolute;  
+    inset: 40% -60% 0 -60%;
+    background-image: radial-gradient(ellipse at bottom, #1D0559 0%, #020112 50%);
+    opacity: .4;
+}
+
+.select-menu {
+    width: 380px;
+    margin: 150px auto;
+}
+
+.select-menu .select-btn {
+    position: relative;
+    top: -140px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 55px;
+    background: #09041e;
+    color: #fff;
+    font-size: 18px;
+    padding: 20px;
+    border-radius: 8px;
+    cursor: pointer; 
+}
+
+.select-btn .icon-arrow {
+    font-size: 25px;
+    transition: 1s;
+}
+
+.select-btn.active .icon-arrow {
+    transform: rotate(180deg);
+}
+
+.select-menu .list {
+    position: absolute;
+    width: 380px;
+    transform: translateY(-140px);
+    margin-top: 10px;
+}
+
+.list .option {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 55px;
+    background: #09041e;
+    color: #fff;
+    padding: 0 16px;
+    cursor: pointer;
+    transform-origin: top;
+    opacity: 0;
+    transform: scale(0) translateY(-65px);
+    margin-bottom: -55px;
+    transition: opacity .5s ease-in-out, transform .5s ease-in-out, margin-bottom .5s ease-in-out;
+    transition-delay: calc(.1s * var(--i));
+}
+
+.select-btn.active~.list .option {
+    transition: opacity 1s ease-in-out, transform .5s ease-in-out, margin-bottom .2s ease-in-out;
+    transition-delay: calc(.1s * var(--i));
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    margin-bottom: 0
+}
+
+.list .option:hover {
+    background: #3f08cb33;
+}
+
+.list .option:nth-child(1) {
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.list .option:nth-child(5) {
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.option .icon {
+    font-size: 25px;
+    margin-right: 15px;
+}
+
+.option .option-text {
+    font-size: 18px;
+    color: #fff;
+}
